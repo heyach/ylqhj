@@ -1,0 +1,58 @@
+body,html,img,div,p,span,a,h1,h2,h3,h4,h5,h6,canvas,input,textarea,th,tr,td{margin: 0;padding: 0;border: none;word-break: break-word;
+	font-family: Helvetica,Tahoma,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei",STXihei,STHeiti,Heiti,SimSun,sans-serif;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);}
+a{text-decoration: none;color: inherit;}
+input:not([type]),input[type="email"],input[type="number"],input[type="password"],input[type="tel"],input[type="url"],input[type="text"]{
+   margin: 0;padding: 0;
+}
+._B{background: #3ccdf1;  
+    background: -moz-linear-gradient(left, #3ccdf1, rgba(22, 184, 237, 1));  
+    background: -webkit-gradient(linear, 0 0, 0 left, from(#3ccdf1), to(rgba(22, 184, 237, 1)));
+    background: -webkit-linear-gradient(left, #3ccdf1, rgba(22, 184, 237, 1));   
+    background: -moz-linear-gradient(left, #3ccdf1, rgba(22, 184, 237, 1));   
+    background: -o-linear-gradient(left, #3ccdf1, rgba(22, 184, 237, 1));   
+    background: -ms-linear-gradient(left, #3ccdf1, rgba(22, 184, 237, 1));   
+    background: linear-gradient(left, #3ccdf1, rgba(22, 184, 237, 1));   
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = #3ccdf1, endColorstr = rgba(22, 184, 237, 1));}
+._con{box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-text-size-adjust:none;transform: rotate(0deg);overflow: auto;}
+._ellipsis{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;-webkit-text-overflow: ellipsis;}
+._ellipsis2{overflow: hidden;text-overflow: -o-ellipsis-lastline;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical;}
+._ellipsis3{overflow: hidden;text-overflow: -o-ellipsis-lastline;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; 
+	-webkit-box-orient: vertical;}
+._ellipsis4{overflow: hidden;text-overflow: -o-ellipsis-lastline;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4; 
+	-webkit-box-orient: vertical;}
+._clearfix{clear: both;}
+.hide{display: none;}
+.shade_00{position: absolute;z-index: 0;width: 100%;height: 100%;top: 0;background: none;}
+.shade_b1{position: absolute;z-index: 0;width: 100%;height: 100%;top: 0;background: black;opacity: 0.1;}
+.shade_b3{position: absolute;z-index: 0;width: 100%;height: 100%;top: 0;background: black;opacity: 0.3;}
+.shade_b5{position: absolute;z-index: 0;width: 100%;height: 100%;top: 0;background: black;opacity: 0.5;}
+.shade_b7{position: absolute;z-index: 0;width: 100%;height: 100%;top: 0;background: black;opacity: 0.7;}
+.shade_w7{position: absolute;z-index: 0;width: 100%;height: 100%;top: 0;background: white;opacity: 0.7;}
+.shade_w1{position: absolute;z-index: 0;width: 100%;height: 100%;top: 0;background: white;opacity: 0.1;}
+.Ttil{font-size: 20px;}
+.Tcnt1{font-size: 18px;}
+.Tcnt2{font-size: 16px;}
+.Tcnt3{font-size: 14px;}
+.Tinfo{font-size: 12px;}
+.Tmin{font-size: 10px;}
+#container{position: absolute;z-index: 1;width: 100%;height: 100%;top: 0;left: 0;background: #F1F1F1;overflow: hidden;}
+.bg-gradient{
+	position: absolute !important;
+	width: 100% !important;
+	height: 100% !important;
+	z-index: 0 !important;
+	background: #21a0fe !important;
+	background: -moz-linear-gradient(top, #21a0fe, rgba(18, 69, 232, 1)) !important;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#21a0fe), to(rgba(18, 69, 232, 1))) !important;
+    background: -webkit-linear-gradient(left, #21a0fe, rgba(18, 69, 232, 1)) !important;
+    background: -moz-linear-gradient(left, #21a0fe, rgba(18, 69, 232, 1)) !important;
+    background: -o-linear-gradient(left, #21a0fe, rgba(18, 69, 232, 1)) !important;
+    background: -ms-linear-gradient(left, #21a0fe, rgba(18, 69, 232, 1)) !important;
+    background: linear-gradient(left, #21a0fe, rgba(18, 69, 232, 1)) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = #21a0fe, endColorstr = rgba(18, 69, 232, 1)) !important;}
+._header{position: absolute;width: 100%;height: 40px;line-height: 40px;top: 0;left: 0;z-index: 999;}
+._footer{position: absolute;width: 100%;height: 40px;line-height: 40px;bottom: 0;left: 0;z-index: 999;}
+.bgImg{position: absolute;width: 100%;height: 100%;top: 0;left: 0;vertical-align: text-bottom;}
+.bgImgAuto{position: relative;width: 100%;height: auto;margin: 0;vertical-align: text-bottom;}
