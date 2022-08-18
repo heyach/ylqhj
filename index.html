@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>娱乐圈2016大事记</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="css/basic.css">
+	<link rel="stylesheet" type="text/css" href="css/animation.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/delay.css">
+  </head>
+<body>
+	<img src="img/i_share.jpg" class="i_share"/>
+	<div id="container" class="_P">
+		<div class="bilibili_loading">
+			<div class="i_bilibili act_bilibili_loading"></div>
+			<div class="loading_progress">正在燃烧流量<span></span>...</div>
+		</div>
+		<div class="btn_music">
+			<img src="img/i_music_on.png" class="i_music_on">
+			<img src="img/i_music_off.png" class="i_music_off">
+		</div>
+		<div class="scene">
+			<canvas id="scene"></canvas>
+		</div>
+		<div class="btn_longhold" id="btn_longhold"></div>
+	</div>
+	<audio id="music" src="music.mp3" preload loop autoplay></audio>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/basic.js"></script>
+	<script src="js/scene_animation.js"></script>
+</body>
+<script>
+var loadAudioArr = ["music.mp3"];
+var loadImgArr = ["https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88a73710860e429caba3d3734415b1ba~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06078ad317b44589956da3fb4b382d1b~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb581407485a47beabe95e8ae72154df~tplv-k3u1fbpfcp-watermark.image",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9c45cccaa90462a9fac34b2f2323b23~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab8d27a87d9c4b2e9f2d77adaab0f6e1~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e315b2adc3f345cbbddc53f844001982~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50ad7107f83b4a9bb43eaa03fc859b9c~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e55b86b2dca14c87a1f6a7c978f022b2~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9b2f163439c49c2a5b96fa8a418204a~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8493780e8c094120a836b0537ae5178d~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a12748e121e4100958086a5571857c3~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38fadca87707446bbe01035c7b9af314~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63ddbd832b61406fbc23a6932ca1d733~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35f44e7d18304405b8555c9ac97e8b8b~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f96baca7e9394005983374be3c8740d0~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72b9680b5d0f4beeb07be66cbdf64887~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33f8eb5c748543e08045d1c4ec67baaf~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/266b7e902e8a4bc39f5ba916906d5b3e~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d405432aa1b4fcdb191a05d01243d81~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11170796329c4b3e8a58372c5f0725b3~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5920c0681c5f43069e95c6a900c11e00~tplv-k3u1fbpfcp-watermark.image?",
+			  "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ef166dbac5d484dad5090ef16dc96a3~tplv-k3u1fbpfcp-watermark.image?"];
+var preLoad = new PreLoading(loadImgArr, loadAudioArr);
+document.onreadystatechange = function(){
+	if(!preLoad.isPreLoad){
+		preLoad.isPreLoad = true;
+		preLoad.preLoadImg(); 
+		preLoad.preLoadAudio();  
+	}
+	if(document.readyState == "interactive" || document.readyState == "complete"){ 
+		if(preLoad.loadAudioCom && preLoad.loadImgCom){
+			$(".bilibili_loading").fadeOut();
+		}
+	}
+};
+function ts(e){
+	e.preventDefault();
+	longhold = true;
+	upload(longhold);
+}
+function tm(e){
+	e.preventDefault();
+}
+function te(e){
+	e.preventDefault();
+	longhold = false;
+	upload(longhold);
+}
+var curp = 0;
+var longhold = false;
+var uploadTimer = null;
+var cspeed = 5;
+$(function(){
+	scene_animation.initScene();
+	['touchstart','mousedown'].forEach(function(item, index){
+     document.getElementById("btn_longhold").addEventListener(item, ts , false);
+	});
+	['touchmove','mousemove'].forEach(function(item, index){
+     document.getElementById("btn_longhold").addEventListener(item, tm , false);
+	});
+	['touchend','mouseup'].forEach(function(item, index){
+     document.getElementById("btn_longhold").addEventListener(item, te , false);
+	});
+	$(".btn_music").on("click",function(){
+		var mu = $("#music")[0];
+		if(mu.paused){
+			mu.play();
+		}else{
+			mu.pause();
+		}
+		$(".i_music_off,.i_music_on").toggle();
+	});
+});
+function upload(f){
+	if(f){
+		uploadTimer = setInterval(function(){
+			if(curp == 21){
+				clearInterval(uploadTimer);
+				console.log("播放over");
+				return;
+			}else{
+				scene_animation.updateImg(scene_animation.pages[curp], scene_animation.pages[curp+1], scene_animation.pageos[curp], scene_animation.pageos[curp+1]);
+			}
+		},cspeed);
+	}else{
+		clearInterval(uploadTimer);
+	}
+}
+</script>
+</html>
